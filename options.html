@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MSG & EML Viewer Options</title>
+</head>
+<body>
+  <h1>MSG & EML Viewer</h1>
+  <h2>Options</h2>
+  <form id="optionsForm">
+    <label for="ITHitAzureURL">Disable ITHit UNC rewrite:</label>
+    <input type="checkbox" id="ITHitAzureURL" >
+    <br>
+    <br>
+    <button type="button" id="getOptionsButton">Get Options</button>
+    <button type="button" id="saveOptionsButton">Save Options</button>
+  </form>
+  <h2>About</h2>
+<a id="license" href="LICENSE.txt" >License</a><br>
+<a id="changelog" href="/CHANGELOG.txt">Changelog</a><br>
+<br>
+  <div id="osIntegrationContent">
+  <h2>OS Integration</h2>
+MSG & EML Viewer accepts URL's as input from the command line as a query or search parameter:
+chrome.exe chrome-extension://<span class="chromeid"></span>/popup.html?file=%1
+<br>
+<pre>
+On Windows, to associate .msg and .eml files with chrome, as a local admin, run the following commands:
+		assoc .msg=MSGEMLViewer
+		assoc .eml=MSGEMLViewer
+		ftype MSGEMLViewer="c:\Program Files\Google\Chrome\Application\chrome.exe" "chrome-extension":"//<span class="chromeid"></span>/popup.html?file=%1"</span>
+
+Then import or create the following registry keys (attached):
+
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\MSGEMLViewer\Application]
+"ApplicationName"="MSG & EML Viewer"
+"ApplicationDescription"="MSG & EML Viewer"
+
+Now end users on that computer will be able to change the application used to open .msg and .eml files to MSG & EML Viewer.
+To force register this as the default for a user, Group Policy has a setting that enables this:
+Computer Configuration\Administrative Templates\Windows Components\File Explorer\Set a default associations configuration file
+See the attached DefaultAssociations.xml file.
+
+You can also do this from the commandline: Dism.exe /online /import-defaultappassociations:c:\temp\DefaultAssociations.xml
+
+</pre>
+<a download="MSGEMLViewer.reg" href="data:text/plain;name=MSGEMLViewer.reg;base64,V2luZG93cyBSZWdpc3RyeSBFZGl0b3IgVmVyc2lvbiA1LjAwCgpbSEtFWV9DTEFTU0VTX1JPT1RcTVNHRU1MVmlld2VyXEFwcGxpY2F0aW9uXQoiQXBwbGljYXRpb25OYW1lIj0iTVNHICYgRU1MIFZpZXdlciIKIkFwcGxpY2F0aW9uRGVzY3JpcHRpb24iPSJNU0cgJiBFTUwgVmlld2VyIg==">MSGEMLViewer.reg</a>
+<a download="DefaultAssociations.xml" href="data:text/plain;name=DefaultAssociations.xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPERlZmF1bHRBc3NvY2lhdGlvbnM+CiAgPEFzc29jaWF0aW9uIElkZW50aWZpZXI9Ii5tc2ciIFByb2dJZD0iTVNHRU1MVmlld2VyIiBBcHBsaWNhdGlvbk5hbWU9Ik1TRyAmIEVNTCBWaWV3ZXIiIC8+CiAgPEFzc29jaWF0aW9uIElkZW50aWZpZXI9Ii5lbWwiIFByb2dJZD0iTVNHRU1MVmlld2VyIiBBcHBsaWNhdGlvbk5hbWU9Ik1TRyAmIEVNTCBWaWV3ZXIiIC8+CjwvRGVmYXVsdEFzc29jaWF0aW9ucz4=">DefaultAssociations.xml</a>
+  </div>
+  <script src="options.js"></script>  </body>
+</html>

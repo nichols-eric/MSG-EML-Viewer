@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View MSG or EML</title>
+    <style>
+        body {
+            width: 700px;
+            height: 500px;
+            padding: 20px;
+        }
+.btn{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-decoration: none;
+
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+    </style>
+</head>
+<body>
+    <div id="dropArea" style="border: 2px dashed #ccc; padding: 20px; text-align: center;">
+    Drag MSG or EML URLs or files here:
+    </div>
+    <br>
+    <label for="urlInput">Or enter a URL or file path:</label>
+<input type="text" id="urlInput" style="width: 100%;" placeholder="https://example.org/message.msg  or  C:\temp\messages\message.eml">
+<button id="fetchButton" class='btn'>Fetch</button>
+    <br><br>
+  <label for="fileInput">Or browse for a file:</label>
+<br>
+    <input type="file" id="fileInput" style="display:none;"/>
+<label for="fileInput" class='btn'>
+Choose File
+</label>
+
+    <br><br>
+    <script src="popup.js"></script>
+    <script src="content.js"></script>
+    <script src="msg.reader/msg.reader.js"></script>
+    <script src="msg.reader/DataStream.js"></script>
+    <script src="msg.reader/multipart.form.js"></script>
+</body>
+</html>

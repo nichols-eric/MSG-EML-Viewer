@@ -1,0 +1,25 @@
+Initial release 1.0.0.1 12/04/2024
+Open href .msg and .eml url's in current page by manipulating the page to download and parse the files using javascript.
+Rejected by store because activeTab permission was not used or needed.
+
+1.0.0.2 13/04/2024
+Added options.html page.
+Added right click extension "Options" menu to access preferences.
+Added storage permission to store key value preferences.
+Added background.js to facilitate messaging between options, popup, storage etc.
+Added more logging
+Added ability to call the extension and pass a msg or eml file or url via url ? query, this enables associating a file handler to open eml or msg.
+	example: chrome.exe chrome-extension://ibeiohigdgmoopkgcocglgifpfgcgbak/popup.html?file=c:\temp\mesages\test.msg  or a url
+Added url rewrite to handle ITHit "unique" and disruptive azure blob url pattern
+Added popup.html so you can specify file or url path, browse for files or drag and drop files and url's, moved it to a larger external window of its own.
+Added LICENSE.txt
+Added CHANGELOG.txt
+Removed activeTab permission.
+
+1.0.0.3 14/04/2024
+Added persistant storage of the ITHit URL rewrite preference
+Added license and changelog links to the options page
+Added OS Integration instructions to the options page
+
+1.0.0.3 17/04/2024
+Changed ithit azure blob to opt out instead of in, removed detailed explanation
